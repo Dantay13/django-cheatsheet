@@ -9,6 +9,8 @@
 
 **django-admin star project django_things_project .**  
 
+- note: the period above install the project in the current folder
+
 - Does two things:
     1. Creates a folder named django_things_project in the current folder
         * Newly created folder contains starting files
