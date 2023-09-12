@@ -131,7 +131,7 @@ T - templates - directory created in the base “django-things” directory
 	- Open `snacks/admin.py`.
 	- Ensure you have registered the `Snack` model for the Django admin using `admin.site.register(Snack)`.
 
-6.Tests:
+6. Tests:
 	- Open `snacks/tests.py`.
 	- Ensure you have tests for your models, views, and any other logic. Each test should have a meaningful name and test a specific functionality.
 	- You can run the tests using `python manage.py test snacks` to ensure they all pass.
