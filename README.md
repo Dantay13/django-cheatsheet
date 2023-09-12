@@ -101,3 +101,50 @@ T - templates - directory created in the base “django-things” directory
     * './node_modules/flowbite/**/*.js'
 4. Include Flowbite’s JavaScript file inside the _base.html file just before the end of the <body> tag using CDN or by including it directly from the node_modules/ folder
     * <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+## How to check for Django CRUD Completeness
+
+1. Models:
+	- Open `snacks/models.py`.
+	- Ensure that the `Snack` model has fields like `name`, `description`, `purchaser`, or any other fields mentioned in the assignment.
+	- Ensure that the `Snack` model has a `get_absolute_url` method that returns the URL to the snack's detail view. This is useful for redirection after creating or updating a snack.
+
+2. Views:
+	- Open `snacks/views.py`.
+	- Ensure you have the following class-based views: `SnackListView`, `SnackDetailView`, `SnackCreateView`, `SnackUpdateView`, and `SnackDeleteView`.
+	- Each view should be linked to the correct template. For example, `SnackListView` should use a template like `snack_list.html`.
+	- Ensure that the `SnackCreateView` and `SnackUpdateView` have the necessary fields defined (e.g., `fields = ['name', 'description', 'purchaser']`).
+
+3. Templates:
+	- Check the `snacks/templates/` directory.
+	- Ensure you have a `base.html` that provides the basic structure for your site. This should include blocks that other templates can override.
+	- Other templates like `snack_list.html`, `snack_detail.html`, `snack_form.html`, and `snack_confirm_delete.html` should extend `base.html` and override the necessary blocks.
+	- Ensure forms, links, and display logic are correctly set up in these templates.
+
+4. URLs:
+	- Open `snacks/urls.py`.
+	- Ensure you have URL patterns for each of your views. They should be correctly mapped to their respective views.
+	- Open `snacks_crud_project/urls.py`.
+	- Ensure you have included the `snacks/urls.py` using the `include` function.
+
+5. Admin:
+	- Open `snacks/admin.py`.
+	- Ensure you have registered the `Snack` model for the Django admin using `admin.site.register(Snack)`.
+
+6.Tests:
+	- Open `snacks/tests.py`.
+	- Ensure you have tests for your models, views, and any other logic. Each test should have a meaningful name and test a specific functionality.
+	- You can run the tests using `python manage.py test snacks` to ensure they all pass.
+
+7. Static Files & Media:
+	- If your assignment requires static files or media:
+		- Ensure `STATIC_URL` and `MEDIA_URL` are set up in `snacks_crud_project/settings.py`.
+		- If serving media during development, ensure you've added the necessary URL pattern in `snacks_crud_project/urls.py`.
+
+8. README.md:
+	- Open `README.md`.
+	- Ensure it has clear instructions on how to set up the project, run it, and test it. Include any prerequisites, installation steps, and how to start the server.
+
+9. Database:
+	- In your terminal, run `python manage.py makemigrations` to ensure all model changes are captured in migrations.
+	- Run `python manage.py migrate` to apply these migrations and update the database schema.
